@@ -1,0 +1,411 @@
+/* ============================================================
+   NAVBAR — Header, Sidebar, Search, Icon Buttons
+   ============================================================ */
+
+/* ── HEADER ── */
+.header {
+  background: #0a8f3c;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.header .icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s;
+}
+
+.header .icon:hover {
+  opacity: 0.75;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ── SEARCH ── */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border-radius: 24px;
+  transition: background 0.3s ease, padding 0.3s ease;
+  position: relative;
+}
+
+.search-container.expanded {
+  background: transparent;
+  padding: 2px 6px 2px 12px;
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  outline: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  transition: width 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.search-input.active {
+  width: 160px;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Search icon button — replaces the old raw icon */
+.search-icon-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.search-icon-btn:hover {
+  background: transparent;
+  transform: scale(1.1);
+}
+
+/* ── HEADER ICON BUTTONS ── */
+.header-icon-btn {
+  position: relative;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.header-icon-btn:hover {
+  transform: scale(1.15);
+  color: #a5d6a7;
+}
+
+.header-icon-btn > span {
+  position: absolute;
+  top: -7px;
+  right: -8px;
+  background: #ff5722;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.58rem;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  animation: popIn 0.2s ease;
+  pointer-events: none;
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0); }
+  80%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Header profile picture */
+.header-profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 12px;
+  }
+
+  .header h2 {
+    font-size: 1.05rem;
+  }
+
+  .header-icons {
+    gap: 10px;
+  }
+
+  .search-input.active {
+    width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 8px 10px;
+  }
+
+  .header h2 {
+    font-size: 0.95rem;
+  }
+
+  .header-icons {
+    gap: 8px;
+  }
+
+  .header-icon-btn {
+    font-size: 1.1rem;
+  }
+
+  .search-input.active {
+    width: 100px;
+  }
+
+  .search-icon-btn {
+    font-size: 1.05rem;
+    padding: 2px;
+  }
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100%;
+  background: white;
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.user-sidebar-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.user-sidebar-close-btn:hover {
+  background: #f3f4f6;
+}
+
+@media (min-width: 961px) {
+  .user-sidebar-close-btn {
+    display: none;
+  }
+}
+
+.sidebar-top {
+  background: #0a8f3c;
+  color: white;
+  padding: 24px 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-top h4 {
+  margin: 0 0 2px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.sidebar-top p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.sidebar-profile-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.sidebar-profile-icon svg {
+  font-size: 26px;
+  color: white;
+}
+
+/* Profile image inside sidebar */
+.sidebar-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Initial letter avatar inside sidebar */
+.sidebar-profile-initial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0a8f3c;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Main menu */
+.sidebar ul.menu {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu li span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu li:hover {
+  background: #f5f5f5;
+}
+
+.menu li.active {
+  background: #e6f4ea;
+  color: #0a8f3c;
+  font-weight: 700;
+}
+
+/* Information section */
+.sidebar-info {
+  padding: 0;
+}
+
+.sidebar-section-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #aaa;
+  letter-spacing: 1.2px;
+  padding: 16px 20px 6px;
+  text-transform: uppercase;
+}
+
+.sidebar-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-info ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  transition: background 0.2s;
+}
+
+.sidebar-info ul li span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-info ul li:hover {
+  background: #f9f9f9;
+}
+
+/* ── OVERLAY ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+  animation: fadeOverlay 0.25s ease;
+}
+
+/* Desktop: keep user sidebar open and hide open button */
+@media (min-width: 961px) {
+  .sidebar {
+    transform: translateX(0) !important;
+  }
+
+  .header .icon {
+    display: none;
+  }
+
+  .overlay {
+    display: none !important;
+  }
+}
+
+@keyframes fadeOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

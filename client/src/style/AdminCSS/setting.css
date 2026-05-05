@@ -1,0 +1,387 @@
+/* ============================================
+   SETTINGS PAGE — matches menu.css aesthetic
+   ============================================ */
+
+/* ── Page wrapper (mirrors .menu-page) ── */
+.settings-page {
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(120, 219, 226, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 193, 7, 0.1)  0%, transparent 50%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ── Header (mirrors .menu-header) ── */
+.settings-header {
+  background: linear-gradient(135deg, #15ba4f 0%, #26cc58 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(21, 186, 79, 0.3);
+}
+
+.settings-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.settings-header p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 16px;
+}
+
+/* ── Body wrapper (centered, max-width) ── */
+.settings-body {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Section card (mirrors .add-item-card / .menu-item-card) ── */
+.settings-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8e9ec;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Decorative corner (mirrors .menu-item-card::before) */
+.settings-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0) 100%);
+  border-radius: 0 16px 0 50px;
+}
+
+.settings-section:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Section title with icon ── */
+.settings-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.settings-section-title h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Section icon (mirrors .mini-icon style from dashboard) */
+.section-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #166534;
+  flex-shrink: 0;
+}
+
+.section-icon.purple-icon {
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+  color: #7c3aed;
+}
+
+/* ── Form layout ── */
+.settings-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.settings-group:last-child {
+  margin-bottom: 0;
+}
+
+.settings-group label {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Inputs (mirrors .search-bar input / .form-group input from menu.css) */
+.settings-group input,
+.settings-group select,
+.settings-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e8e9ec;
+  border-radius: 12px;
+  background: #fff;
+  color: #1f2937;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.settings-group input:focus,
+.settings-group select:focus,
+.settings-group textarea:focus {
+  border-color: #15ba4f;
+  box-shadow: 0 0 0 3px rgba(21, 186, 79, 0.12);
+}
+
+.settings-group input::placeholder,
+.settings-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+.settings-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* ── Toggle switch rows ── */
+.settings-switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f3f4f6;
+  position: relative;
+  z-index: 1;
+}
+
+.settings-switch-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.settings-switch-info h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.switch-icon {
+  color: #15ba4f;
+  font-size: 15px;
+}
+
+.settings-switch-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ── Custom toggle switch (replaces plain checkbox) ── */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-track {
+  display: block;
+  width: 52px;
+  height: 28px;
+  border-radius: 14px;
+  background: #e5e7eb;
+  border: 2px solid #e8e9ec;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch input:checked + .toggle-track {
+  background: linear-gradient(135deg, #15ba4f 0%, #26cc58 100%);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(21, 186, 79, 0.3);
+}
+
+.toggle-switch input:checked + .toggle-track .toggle-thumb {
+  transform: translateX(24px);
+}
+
+/* ── Actions row ── */
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+/* Buttons (mirrors .add-btn / .filter-btn from menu.css) */
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #374151;
+  border: 2px solid #e8e9ec;
+}
+
+.btn-secondary:hover {
+  border-color: #15ba4f;
+  color: #15ba4f;
+  background: #f0fdf4;
+}
+
+/* Primary button (mirrors .add-btn from menu.css) */
+.btn-primary {
+  background: linear-gradient(135deg, #00b140 0%, #00d455 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 177, 64, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 177, 64, 0.4);
+}
+
+.btn-danger {
+  background: #fff5f5;
+  color: #b91c1c;
+  border: 2px solid #fecaca;
+}
+
+.btn-danger:hover {
+  background: #fee2e2;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   RESPONSIVE — TABLET (≤ 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .settings-page {
+    padding: 16px;
+  }
+
+  .settings-header {
+    padding: 22px 20px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+
+  .settings-header h1 {
+    font-size: 24px;
+  }
+
+  .settings-row {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .settings-page {
+    padding: 12px;
+  }
+
+  .settings-header h1 {
+    font-size: 20px;
+  }
+
+  .settings-section {
+    padding: 16px;
+  }
+
+  .settings-section-title h2 {
+    font-size: 17px;
+  }
+
+  .section-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .toggle-track {
+    width: 44px;
+    height: 24px;
+  }
+
+  .toggle-thumb {
+    width: 16px;
+    height: 16px;
+  }
+
+  .toggle-switch input:checked + .toggle-track .toggle-thumb {
+    transform: translateX(20px);
+  }
+}

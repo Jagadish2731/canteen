@@ -1,0 +1,219 @@
+/* ============================================
+   SIDEBAR BASE (Desktop — ALWAYS visible)
+   ============================================ */
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  z-index: 1000;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.06);
+  overflow-y: auto;
+}
+
+.sidebar-brand {
+  background: #16a34a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 16px;
+}
+
+.sidebar-brand svg {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.sidebar-brand h1 {
+  font-size: 22px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.sidebar-brand p {
+  font-size: 12px;
+  opacity: 0.95;
+  margin: 2px 0 0;
+}
+
+.admin-card {
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #16a34a;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.admin-card h4 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.admin-card p {
+  font-size: 12px;
+  color: #6c727a;
+  margin: 2px 0 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.menu-item {
+  padding: 11px 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333a44;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-item:hover {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.menu-item.active {
+  background: #16a34a;
+  color: #fff;
+}
+
+.logout-btn {
+  margin: 12px;
+  border: none;
+  background: transparent;
+  color: #d13b3b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  width: calc(100% - 24px);
+}
+
+.logout-btn:hover {
+  background: #fef2f2;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+  margin-left: 280px;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* ============================================
+   OVERLAY (mobile only)
+   ============================================ */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================
+   MOBILE (≤ 960px)
+   hamburger toggles sidebar, desktop ignores .open
+   ============================================ */
+@media (max-width: 960px) {
+  .sidebar {
+    left: -280px;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .overlay {
+    display: block;
+  }
+}
+
+/* ============================================
+   VERY SMALL SCREENS (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 240px;
+    left: -240px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-brand h1 {
+    font-size: 18px;
+  }
+
+  .menu-item {
+    font-size: 13px;
+    padding: 9px 10px;
+  }
+
+  .main-content {
+    padding: 12px;
+  }
+}
+
+/* ============================================
+   ✅ FIX: DESKTOP GUARANTEE (> 960px)
+   Sidebar always visible regardless of JS state.
+   Overlay never shown on desktop.
+   ============================================ */
+@media (min-width: 961px) {
+  .sidebar {
+    left: 0 !important;
+  }
+
+  .overlay {
+    display: none !important;
+  }
+}

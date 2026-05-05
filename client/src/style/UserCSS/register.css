@@ -1,0 +1,205 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8f5f3, #f8f7f7);
+}
+
+.register-card {
+  background: linear-gradient(135deg, #0a8f3c, #05a13e);
+  padding: 35px;
+  width: 370px;
+  border-radius: 20px;
+  box-shadow: 0px 15px 35px rgba(108, 108, 108, 0.2);
+  text-align: center;
+}
+
+.register-card h2 {
+  margin-bottom: 20px;
+  color: #3c0374;
+}
+
+.register-card h3 {
+  margin-bottom: 20px;
+  color: #f9f7fa;
+}
+
+.register-card .input-group {
+  position: relative;
+  width: 100%;
+  margin: 12px 0;
+}
+
+.register-card .input-group .input-icon {
+  position: absolute;
+  inset-inline-start: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 1.3rem;
+  pointer-events: none;
+}
+
+.register-card .input-group .password-toggle {
+  position: absolute;
+  inset-inline-end: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.register-card input {
+  width: 100%;
+  padding: 13px 45px 13px 45px;
+  margin: 0;
+  border: 1px solid #fcfcfc;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: black;
+}
+
+.register-card input::placeholder {
+  color: black;
+}
+
+.register-card select {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #fcfbfb;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: black;
+}
+
+.register-card input:focus,
+.register-card select:focus {
+  border-color: #000000;
+}
+
+/* ✅ Role Selection */
+.role-selection {
+  display: flex;
+  justify-content: space-around;
+  margin: 12px 0;
+  gap: 10px;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 2px solid #fcfcfc;
+  border-radius: 10px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  flex: 1;
+  user-select: none; /* ✅ prevent text selection on click */
+}
+
+.role-option:hover {
+  border-color: #4941e3;
+  background: #f0f0f0;
+  transform: scale(1.03);
+}
+
+/* ✅ Active/Selected state */
+.role-option.active {
+  border-color: #4941e3;
+  background: #4941e3;
+  color: white;
+  transform: scale(1.05);
+}
+
+.role-option.active .role-icon {
+  color: white;
+}
+
+/* ✅ Hide radio input but keep it functional */
+.role-option input[type="radio"] {
+  display: none;
+  pointer-events: none;
+}
+
+/* ✅ Role icons */
+.role-icon {
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
+.user-role .role-icon {
+  color: black;
+}
+
+.admin-role .role-icon {
+  color: #090909;
+}
+
+/* ✅ Submit Button */
+.register-card button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #4941e3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.register-card button:hover {
+  background: #0f05ce;
+  transform: scale(1.03);
+}
+
+.register-card button:disabled {
+  background: #9996e8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ✅ Links */
+.register-card a {
+  color: #3c0374;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.register-card a:hover {
+  text-decoration: underline;
+}
+
+.register-card p {
+  color: rgb(21, 16, 16);
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* ✅ Error message */
+.error-msg {
+  background: #ffe0e0;
+  color: #cc0000;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: left;
+}
